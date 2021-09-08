@@ -44,11 +44,11 @@ body,html {
 }
 
 .set-alarm {
-    background-color: #498AFB;
+    background-color: yellow;
 }
 
 .clear-alarm {
-    background-color: #FF3860;
+    background-color: orange;
 }
 
 
