@@ -1,0 +1,77 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-color: #12181B;
+}
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#clock {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15vw;
+   
+    background-clip: text;
+   border-radius: 20px;
+   background: -webkit-linear-gradient(#0d5464, #e5ff00, #4eeb97, #ff0000);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: animate 5s linear infinite;
+
+ 
+}
+
+.controls {
+    margin-top: 16px;
+}
+
+.button {
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.set-alarm {
+    background-color: #498AFB;
+}
+
+.clear-alarm {
+    background-color: #FF3860;
+}
+
+
+
+
+
+@keyframes animate  {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.wrapper span{
+    height: 100%;
+    width: 28%;
+    background: inherit;
+    border-radius: 10px;
+}
+
+.wrapper span:first-child{
+    filter: blur(10px);
+}
+
+.wrapper span:last-child{
+    filter: blur(80px);
+}
