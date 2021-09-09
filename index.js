@@ -3,6 +3,7 @@ const audio = new Audio('https://tuneguru.in/wp-content/uploads/2020/12/Harry-po
 audio.loop = true;
 let alarmTime = null;
 let alarmTimeout = null;
+let day_night = 'AM'
 
 function updateTime() {
     const date = new Date();
@@ -11,13 +12,31 @@ function updateTime() {
     const minutes = (date.getMinutes());
     const seconds = (date.getSeconds());
 
+    display.innerText=`${hour} : ${minutes} : ${seconds}  ${day_night}`
 
+    if (hour > 12) {
+        hour = hour - 12;
+        day_night = 'PM'
 
-    display.innerText=`${hour} : ${minutes} : ${seconds}`
+    }
+
 }
 
+let btnCheck = document.querySelector('set-alarm');
+let input = document.querySelector('input');
+let result = document.querySelector('alert');
 
 
+window.onload=function(){
+    btnCheck.addEventListener('click', () =>{
+        let value = input.value.trim();
+    
+        if (value.length == 0) {
+            result.style.display = 'none';
+        }
+    });
+    
+  }
 
 
 function setAlarmTime(value) {
@@ -25,6 +44,9 @@ function setAlarmTime(value) {
 }
 
 function setAlarm() {
+  
+  
+
     if(alarmTime) {
         const current = new Date();
         const timeToAlarm = new Date(alarmTime);
@@ -32,8 +54,12 @@ function setAlarm() {
         if (timeToAlarm > current) {
             const timeout = timeToAlarm.getTime() - current.getTime();
             alarmTimeout = setTimeout(() => audio.play(), timeout);
-            alert('Alarm set');
+       
         }
+
+       /* if(timeToAlarm == current) {
+            alert('Dont enter the current time');
+        }*/
     }
 }
 
@@ -46,3 +72,4 @@ function clearAlarm() {
 }
 
 setInterval(updateTime, 1000);
+
