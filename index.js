@@ -27,16 +27,7 @@ let input = document.querySelector('input');
 let result = document.querySelector('alert');
 
 
-window.onload=function(){
-    btnCheck.addEventListener('click', () =>{
-        let value = input.value.trim();
-    
-        if (value.length == 0) {
-            result.style.display = 'none';
-        }
-    });
-    
-  }
+
 
 
 function setAlarmTime(value) {
